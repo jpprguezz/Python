@@ -1,3 +1,5 @@
+# Datos
+
 Si bien los programas que vemos son un simple conjunto de código y datos, pero a nivel de memoria la cosa esta hecha de secuencias de bits. Depende del lenguaje que usemos, la interpretacion de estos bits variará . Cada trozo de memoria contiene un objetoo y cada objeto posee
 
 - Un tipo de dato que se almacena
