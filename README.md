@@ -5,7 +5,7 @@ Repositorio para practicar python, con ejercicios divididos por temas
 
 - [Datos](Datos)
 - [Números](Números)
-- [Cadenas de Texto](CadenasdeTexto)
+- [Cadenas de Texto](Cadenas_de_Texto)
 - [Condicionales](Condicionales)
 - [Bucles](Bucles)
 - [Listas](Listas)
@@ -14,7 +14,7 @@ Repositorio para practicar python, con ejercicios divididos por temas
 - [Conjuntos](Conjuntos)
 - [Ficheros](Ficheros)
 - [Funciones](Funciones)
-- [Objetos y Clases](ObjetosyClases)
+- [Objetos y Clases](Objetos_y_Clases)
 - [Excepciones](Excepciones)
 - [Módulos](Módulos)
 - [re](re)
