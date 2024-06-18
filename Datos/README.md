@@ -70,7 +70,7 @@ Pero, ¿que pasa si quiero ver el valor de una variable?. Para eso tenemos dos m
 print(nombre_variable) --> Imprimre el valor de la variable
 
 
->>> hola --> Llamas directamente a la variable (solo disponible en par a el interprete de Python)
+hola --> Llamas directamente a la variable (solo disponible en par a el interprete de Python)
 ```
 
 También podemos conocer el tipo de la variable o de cualquier valor:
@@ -83,5 +83,42 @@ type(hola)
 str
 ```
 
-La mutabilidad
+"Las variables son nombres, no lugares". Esta frase hace referencia a que cuando nostros definimos un valor para una variable, lo que hacemos es apuntar el nombre hacia algun lugar de memoria. He aqui un ejemplo:
 
+```python
+a = 6
+b = a
+id(a)
+140736716028504
+id(b)
+140736716028504
+```
+
+En cambio, en el caso de que los valores de cada variable fueran diferentes, ahi si cambia el lugar de memoria:
+
+```python
+a = 5
+b = 90
+id(a)
+140736716028472
+id(b)
+140736716031192
+```
+
+Por último, veremos brevemente las funciones built-in, las cuales son funciones incoporadas desde un inicio en Python:
+
+| `abs()`        | `delattr()`     | `hash()`        | `memoryview()` | `set()`          |
+|----------------|-----------------|-----------------|----------------|------------------|
+| `all()`        | `dict()`        | `help()`        | `min()`        | `setattr()`      |
+| `any()`        | `dir()`         | `hex()`         | `next()`       | `slice()`        |
+| `ascii()`      | `divmod()`      | `id()`          | `object()`     | `sorted()`       |
+| `bin()`        | `enumerate()`   | `input()`       | `oct()`        | `staticmethod()` |
+| `bool()`       | `eval()`        | `int()`         | `open()`       | `str()`          |
+| `breakpoint()` | `exec()`        | `isinstance()`  | `ord()`        | `sum()`          |
+| `bytearray()`  | `filter()`      | `issubclass()`  | `pow()`        | `super()`        |
+| `bytes()`      | `float()`       | `iter()`        | `print()`      | `tuple()`        |
+| `callable()`   | `format()`      | `len()`         | `property()`   | `type()`         |
+| `chr()`        | `frozenset()`   | `list()`        | `range()`      | `vars()`         |
+| `classmethod()`| `getattr()`     | `locals()`      | `repr()`       | `zip()`          |
+| `compile()`    | `globals()`     | `map()`         | `reversed()`   | `__import__()`   |
+| `complex()`    | `hasattr()`     | `max()`         | `round()`      |                  |
