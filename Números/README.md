@@ -207,3 +207,34 @@ Si bien los numeros que manejamos normalmente estan en base decimal (o base 10),
     ```
 
 - Base octal: Con ocho simbolos para representar valores, del 1 al 7
+
+    - Pefijo: 0o
+    ```python
+    >>> 0o6243
+    3235
+    ``` 
+
+    - Función: oct()
+    ```python
+    >>> oct(3235)
+    '0o6243'
+
+    # También se nos devuelve en un string
+    ``` 
+
+
+- Base hexadecimal: Con dieciseis símbolos para representar valores incluyendo números (del 0 al 9) y letras (de la A a la F)
+
+    - Prefijo: 0x
+    ```python
+    >>> 0x7F2A
+    32554
+    ```
+
+    - Función: hex()
+    ```python
+    >>> hex(32554)
+    '0x7f2a'
+
+    # Devuelta en string como en las anteriores, pero podemos observar que la representación hexadecimal es indiferente frente a mayúsculas y minúsculas
+    ```
