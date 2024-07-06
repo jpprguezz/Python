@@ -196,4 +196,83 @@ Debemos destacar la existencia de indices positivos, pero también de indices ne
 ![alt text](src/image.png)
 
 
-Los strings pueden ser troceados 
+Los strings pueden ser troceados para extraer ciertos trozos del mismo. Para ello se utiilizan estas aproximaciones:
+
+- [:]
+Extrae todo el string (es similar a una copia).
+```python
+>>> msg1 = 'Hola que tal amigos'
+
+>>> proverb[:]
+'Hola que tal amigos'
+```
+
+- [start:]
+Extrae desde el principio (start) al final de la cadena.
+```python
+>>> msg1[4:]
+' que tal amigos'
+```
+
+- [:end]
+Extrae desde el comienzo hasta el final (end) menos 1.
+```python
+>>> msg1[:6]
+'Hola q'
+```
+
+- [start:end]
+Extrae desde el inicio al final menos 1.
+```python
+>>> msg1[7:15]
+'e tal am'
+```
+
+- [start:end:step]
+Extrae desde el inicio al final, menos 1, indicandole los saltos de tamaño en el string (step).
+```python
+>>> msg1[5:11:2]
+'qet'
+```
+
+Debemos tener en cuenta que el troceado siempre llega a un unidad menos del indice final real del string. En cambio, el comienzo siempre coincide con lo que colocamos
+
+
+La longitud de un string puede ser comprobada, gracuas a la funcion len(), la cual da la posibilidad de medir practicamente todos los tipos y estructuras en Python.
+
+```python
+>>> msg1 = 'Mediremos este string'
+
+>>> len(msg1)
+21
+
+>>> empty_msg = ''
+
+>>> len(empty_msg)
+0
+```
+
+Una importante parte de los string en Python, es el poder comprobar la existencia de subcadenas dentro de la cadena principal que queramos analizar. Para ellos tenemos el operador in. Este operador nos devuelve un booleano como resultado al ejecutarlo.
+
+```python
+>>> msg1 = 'Este es un texto de ejemplo'
+
+>>> 'Este' in msg1
+True
+
+>>> 'texto' in msg1
+True
+
+>>> 'hola' in msg1
+False
+```
+
+Hay que tener en cuenta que si quisieramos descubrir si una subcadena no esta en una cadena de texto, deberiamos hacer la siguiente pregunta pitónica:
+
+```python
+first_three_abecedary_letters = 'ABC'
+
+>>> 'D' not in first_three_abecedary_letters
+True
+```
+
