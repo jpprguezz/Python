@@ -276,3 +276,98 @@ first_three_abecedary_letters = 'ABC'
 True
 ```
 
+Debemos tener en cuenta que a la hora de leer cualquier informacion, lo más probable es que esta posea caracteres de relleno tanto al comienzo como al final de la cadena de texto. Para poder suprimir estos caracteres, podemos utilizar la función strip(), la cual elimina los caracteres iniciales y finales del string.
+
+Existen variantes de esta funcion, la cual puede ser aplicada solo al comienzo o solo al final del string.
+
+```python
+>>> serial_number = '\n\t   \n 48374983274832    \n\n\t   \t   \n'
+
+>>> serial_number.strip()
+'48374983274832'
+```
+
+Hay que tener en cuenta que si no inidicamos a la función strip(), elimina por defecto cualquier combinación de espacios en blanco, \n y \t. Para ello se utilizan las siguientes dios funciones:
+
+- lstrip() para limpiar por el comienzo (es decir, por la izquierda)
+
+```python
+>>> serial_number.lstrip()
+'48374983274832    \n\n\t   \t   \n'
+```
+
+- rstip() para limpiar por el final (es decir, por la derecha)
+
+```python
+>>> serial_number.rstrip()
+'\n\t   \n 48374983274832'
+```
+
+Y como dijimos antes, se puede especificar lo que quieres que se quiera borrar:
+
+```python
+>>> serial_number.strip('\n')
+'\t   \n 48374983274832    \n\n\t   \t   '
+```
+
+En Python se puede hacer, entre muchas cosas, busquedas en los strings.
+
+Pongames de ejemplo, el estribillo de la primera intro de la pirmera temporada de Pokémon:
+
+```python
+lyrics = """Pokémon (gotta catch 'em all), it's you and me
+I know it's my destiny (Pokémon)
+Oh, you're my best friend
+In a world we must defend
+Pokémon (gotta catch 'em all), a heart so true
+Our courage will pull us through
+You teach me and I'll teach you
+Pokémon (gotta catch 'em all)
+Gotta catch 'em all, yeah"""
+```
+
+A partir de este string, podemos:
+
+- Comprobar si un string comienza o termina por alguna subcadena:
+
+```python
+>>> lyrics.startwith('Pokémon')
+True
+
+>>> lyrics.endwith('oh')
+False
+```
+
+- Encontrar la primera ocurrencia de alguna subcadena:
+
+```python
+>>> lyrics.find('gotta')
+9
+
+>>> lyrics.index('friend')
+99
+```
+
+Debemos destacar que las funciones index() y find() devuelven el índice de la primera ocurrencia de la subcadena que le pasemos a función, pero cada una de estas funciones tiene un comportamiento diferente cuando el elemento pasado no existe en el string:
+
+```python
+>>> lyrics.find('hola')
+-1
+
+>>> lyrics.index('hola')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+```
+
+- Y por último contabilizar el número de veces que aparece uan subcadena:
+
+```python
+>>> lyrics.count('Pokémon')
+4
+```
+
+
+
+
+
