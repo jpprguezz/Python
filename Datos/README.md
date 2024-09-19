@@ -22,7 +22,7 @@ Los tipos de datos en Python son:
 
 
 
-En python existen las variables. Estas son importantes y ayudan a definir un nombre para cualquier valor en memoria que queramos usar en nuestro código:
+En Python existen las variables. Estas son importantes y ayudan a definir un nombre para cualquier valor en memoria que queramos usar en nuestro código:
 ```python
 numero_uno = 1
 ```
