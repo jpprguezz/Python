@@ -23,7 +23,7 @@ En el caso de que quisieramos colocar comillas simples dentro, deberiamos cambia
 Hay otra forma más de crear strings, y esta es con comillas triples. este tipo de strings normalmente se utiliza para cadenas multilineas, como por ejemplo, la documentación de código.
 
 ```python
->>> master_of_puppets = """ Master of Puppets es una canción de la banda de trash metal Metallica de su album homónimo de 1986""""
+>>> master_of_puppets = """Master of Puppets es una canción de la banda de trash metal Metallica de su album Master of Puppets de 1986""""
 ```
 
 Y al igual que se pueden crear string con contenido, también se pueden hacer strings completamente vacios de esta sencilla manera:
@@ -67,8 +67,9 @@ En Python se puede escapar el significado de algunos caracteres para conseguir r
 Porbablemente la secuencia de salto de linea (\n) es la mñas conocida de todas, aunque se pueden realizar muchas otras, que podremos ver más adelante, aunque vamos a ver unas pocas:
 
 - Salto de línea
+
 ```python
->>> alphabet = 'a\nb\nc\n' 
+>>> alphabet = 'a\nb\nc\n'
 >>> print(alphabet)
 
 a
@@ -108,7 +109,7 @@ Pero: ¿que pasaría si quisieramos que estos caracteres especiales pierdan el s
 ```python
 >>> text = 'abc\nABC'
 
->>> print(text) 
+>>> print(text)
 abc
 ABC
 
@@ -146,8 +147,8 @@ José
 >>> type(name)
 str
 ```
-Debemos tener en cuenta que input() siempre nos devuelve un string. Por ello muchas veces deberemos hacer conversión explicita.
 
+Debemos tener en cuenta que input() siempre nos devuelve un string. Por ello muchas veces deberemos hacer conversión explicita.
 
 Aparte en Python, se pueden hacer operaciones con las propias strings:
 
@@ -195,11 +196,11 @@ Debemos destacar la existencia de indices positivos, pero también de indices ne
 
 ![alt text](src/image.png)
 
-
 Los strings pueden ser troceados para extraer ciertos trozos del mismo. Para ello se utiilizan estas aproximaciones:
 
 - [:]
-Extrae todo el string (es similar a una copia).
+  Extrae todo el string (es similar a una copia).
+
 ```python
 >>> msg1 = 'Hola que tal amigos'
 
@@ -208,35 +209,38 @@ Extrae todo el string (es similar a una copia).
 ```
 
 - [start:]
-Extrae desde el principio (start) al final de la cadena.
+  Extrae desde el principio (start) al final de la cadena.
+
 ```python
 >>> msg1[4:]
 ' que tal amigos'
 ```
 
 - [:end]
-Extrae desde el comienzo hasta el final (end) menos 1.
+  Extrae desde el comienzo hasta el final (end) menos 1.
+
 ```python
 >>> msg1[:6]
 'Hola q'
 ```
 
 - [start:end]
-Extrae desde el inicio al final menos 1.
+  Extrae desde el inicio al final menos 1.
+
 ```python
 >>> msg1[7:15]
 'e tal am'
 ```
 
 - [start:end:step]
-Extrae desde el inicio al final, menos 1, indicandole los saltos de tamaño en el string (step).
+  Extrae desde el inicio al final, menos 1, indicandole los saltos de tamaño en el string (step).
+
 ```python
 >>> msg1[5:11:2]
 'qet'
 ```
 
 Debemos tener en cuenta que el troceado siempre llega a un unidad menos del indice final real del string. En cambio, el comienzo siempre coincide con lo que colocamos
-
 
 La longitud de un string puede ser comprobada, gracuas a la funcion len(), la cual da la posibilidad de medir practicamente todos los tipos y estructuras en Python.
 
@@ -367,7 +371,167 @@ ValueError: substring not found
 4
 ```
 
+Una parte importa de las cadenas de texto, es la llamada función replace(). Indicandole a esta función la subcadena que queremos reemplazar, el reemplazo, y las instancias en las que se debe reemplazar, podemos hacer que esta función sea efectiva. En el caso de que no indiquemos las instancias, el replace se realizará en todos los casos que se encuentren
+
+```python
+>>> proverb = 'Quien mal anda mal acaba'
+
+>>> proverb.replace('mal', 'bien')
+'Quien bien anda bien acaba'
+
+proverb.replace('mal', 'bien', 1)  # sólo 1 reemplazo
+'Quien bien anda mal acaba'
+```
+
+A su vez, Python nos permite realizar cambios en los caracteres de una cadena de texto, pudiendolos cambiar a mayusculas y minúsculas:
+
+```python
+>>> text = 'hombre precavido, vale por dos'
+
+>>> text.capitalize()
+'Hombre precavido, vale por dos'
+
+>>> text.title()
+'Hombre Precavido, Vale Por Dos'
+
+>>> text.upper()
+'HOMBRE PRECAVIDO, VALE POR DOS'
+
+>>> text.lower()
+'hombre precavido, vale por dos'
+
+>>> text.swapcase()
+'HOMBRE PRECAVIDO, VALE POR DOS'
+```
+
+Debemos destacar una serie de funciones importantes, las cuales nos permite identificar el tipo de caracteres que poseemos en una cadena de texto:
+
+```python
+# Identificar si todos los caracteres son alfanuméricos, es decir, letras (a-z) y números (0-9)
+>>> 'Kangashkan'.isalnum()
+True
+
+>>> 'Porygon-2'.isalnum()
+False
+
+# Identificar si todos son números
+>>> '555'.isnumeric()
+True
+
+>>> '5-5-5'.isnumeric()
+False
+
+# Identificar si son todos letras
+>>> 'abc'.isalpha()
+True
+
+>>> 'a-b-c'.isalpha()
+False
+
+# Identificar si hay mayúsculas/minúsculas
+
+>>> 'HELLO'.isupper()
+True
+
+>>> 'hello'.islower()
+True
+
+>>> 'Hello World'.istitle()
+True
+```
+
+Ahora veremos el como hacer interpolación de strings. En este contexto, esto significa que vamos a ver el como sustituir una variable por una cadena de texto.
+
+Primero veremos el f-string, que es la forma más común para poder hacer intrerpolación de strings. Para hacerlo en Python, simplemente debemos antes de la primera comilla del string, una "f" e incluir "{ }" cada vez que deseemos interpiolar alguna expresión. Veamoslo mejor con un ejemplo.
+
+```python
+>>> name = 'Fumito Ueda'
+>>> date = '2005'
+>>> game = 'Shadow of the Colosus'
+>>> console = 'PS2'
+
+>>> f'Mi nombre es {name} y soy el principal creador de {game} que salió en {console}'
+'Mi nombre es Fumito Ueda y soy el principal creador de Shadow of the Colosus que salió en PS2'
+```
+
+Pero, ¿y si queremos colocar llaves dentro de la interpolación?. Pues es tan sencillo como duplicar las llaves. Por ejemplo:
+
+```python
+>>> x = 10
+
+>>> f'{{x = {x}}}'
+```
+
+También el f-string nos permite el poder cambiar diversas opciones de formateado (ancho de texto, numero de decimales, etc.) como se ve en estos ejemplos:
+
+```python
+# Dando formato a valores enteros
+>>> pokemon_1st_gen = 151
+
+>>> f'{pokemon_1st_gen:10d}'
+'       151'
+
+>>> f'{pokemon_1st_gen:010d}'
+'0000000151'
 
 
+# Dando formato a valores flotantes
+>>> PI = 3.14159265
 
+>>> f'{PI:f}'  # Se colocan 6 decimales por defecto
+'3.141593'
 
+>>> f'{PI:12f}'
+'    3.141593'
+
+>>> f'{PI:07.2f}'
+'0003.14'
+```
+
+En estos dos primeros la f se utiliza haciendo referencia a flotante
+
+```python
+# Dando formato a cadenas de texto
+>>> text1 = 'hello'
+>>> text2 = 'my'
+>>> text3 = 'friend'
+
+>>> f'({text1:<9s})({text2:^13})({text3:>9s})'
+'(hello    )(     my      )(   friend)'
+
+>>> f'({text1:.<9s})({text2:^13})({text3:.>9s})'
+'(hello....)(     my      )(...friend)'
+```
+
+En este ultimo se coloca la s haciendo referencia a string
+
+```python
+# Pasar valores enteros a otras bases
+>>> value = 987
+
+>>> f'{value:b}' # Binario
+'1111011011'
+
+>>> f'{value:o}' # Octal
+'1733'
+
+>>> f'{value:x}' # Hexadecimal
+'3db'
+```
+
+Aqui simplemente se colocan los prefijos de las bases a las que se quiere pasar el valor que tenemos
+
+Ahora vamos a pasar a hablar sobre algunos de los modos que podemos encontrar en Python:
+
+- Modo "debug"
+
+A partir de la version 3.8, Python permite que el nombre de la variable, pueda mostrarse/imprimirse, con simplemente añadir un "=" al lado del nombre de la variable.
+
+```python
+>>> serie = 'Hunter X Hunter (2011)'
+>>> imdb_rating = 9.0
+>>> num_seasons = 6
+
+>>> f'{serie=}'
+"serie='Hunter X Hunter (2011)'"
+```
