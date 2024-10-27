@@ -362,11 +362,11 @@ Es un tipo de sentencia muy importante y similar a los "switch" en otros lenguaj
 pokemon_name = 'Bulbasaur'
 
 match pokemon_name:
-    case 'Charmander'
+    case 'Charmander':
         print('Pokemon#004')
-    case 'Squirtle'
+    case 'Squirtle':
         print('Pokemon#007')
-    case 'Pikachu'
+    case 'Pikachu':
         print('Pokemon#025')
 
 Bulbasaur
