@@ -81,6 +81,7 @@ Y asi con asignacion aumentada:
 ```
 
 El módulo es simplemente el averiguar el resto de cualquier division usando el simbolo %.
+# revisar deplazamiento circular
 
 ```python
 >>> 9 % 4
